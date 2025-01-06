@@ -1,7 +1,72 @@
-## Robot Package Template
+Differential Drive Robot Simulation
 
-This is a GitHub template. You can make your own copy by clicking the green "Use this template" button.
+This repository contains the URDF and configuration files for simulating a differential drive robot in ROS 2. The robot is designed with a simple yet robust structure, making it suitable for applications like navigation, mapping, and obstacle avoidance.
+Features
 
-It is recommended that you keep the repo/package name the same, but if you do change it, ensure you do a "Find all" using your IDE (or the built-in GitHub IDE by hitting the `.` key) and rename all instances of `my_bot` to whatever your project's name is.
+    Chassis:
+        A lightweight, rectangular base for the robot's body.
+        Designed with accurate inertial properties for realistic simulation.
 
-Note that each directory currently has at least one file in it to ensure that git tracks the files (and, consequently, that a fresh clone has direcctories present for CMake to find). These example files can be removed if required (and the directories can be removed if `CMakeLists.txt` is adjusted accordingly).
+    Differential Drive System:
+        Two driven wheels (left and right) controlled via continuous joints.
+        Allows the robot to perform precise linear and rotational movements.
+
+    Caster Ball:
+        A passive spherical ball mounted at the rear for balance and stability.
+        Configured with minimal friction for smooth motion.
+
+    Gazebo Integration:
+        Material definitions for realistic visualization in the Gazebo simulator.
+        Configured collision properties and friction coefficients for accurate physics.
+
+File Structure
+
+    robot.urdf.xacro:
+        Main URDF file that defines the robot's structure and includes the following components:
+            Chassis
+            Left and Right Wheels
+            Caster Ball
+            Inertial properties
+
+    inertial_macros.xacro:
+        Macros for defining inertial properties of the robot components.
+
+    Sensor Integration:
+        Additional URDF files for integrating sensors like lidar and cameras.
+
+Prerequisites
+
+    ROS 2 Humble or later
+    Gazebo for simulation
+
+Getting Started
+
+    Clone the repository:
+
+git clone https://github.com/yourusername/your-repo-name.git
+cd your-repo-name
+
+Build the workspace:
+
+colcon build
+
+Launch the simulation:
+
+ros2 launch your_package_name launch_sim.launch.py
+
+Visualize in Rviz:
+
+    rviz2
+
+Future Work
+
+    Adding sensor integration (e.g., lidar, camera) for advanced functionalities.
+    Implementing SLAM and navigation algorithms.
+    Testing in real-world environments with hardware.
+
+Contributing
+
+Contributions are welcome! Feel free to open issues or submit pull requests for new features or bug fixes.
+License
+
+This project is licensed under the MIT License.
